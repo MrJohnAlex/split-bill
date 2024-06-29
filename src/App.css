@@ -1,38 +1,85 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: aliceblue;
+}
 .App {
   text-align: center;
+  width: 800px;
+  height: 100vh;
+  margin: 5rem auto;
+}
+.App .sidebar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "lists bill-split"
+    "btn ."
+    "form .";
+  background-color: rgb(219, 216, 210);
+  padding: 10px;
+  gap: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.friend-lists {
+  grid-area: lists;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn {
+  grid-area: btn;
+  width: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.add-friend-form {
+  grid-area: form;
+}
+
+.bill-split {
+  grid-area: bill-split;
   display: flex;
   flex-direction: column;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+ul li {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
 }
-
-.App-link {
-  color: #61dafb;
+ul li.selected {
+  background-color: silver;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul li p {
+  margin: 0;
+  text-align: start;
+}
+.btn {
+  padding: 5px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  background-color: rgb(240, 138, 14);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.bill-split .form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: start;
+  padding: 5px 20px;
+}
+.form-group input {
+  width: 100px;
+}
+.form-group select {
+  width: 110px;
 }
